@@ -14,22 +14,13 @@ $(document).ready(function () {
         readURL(this);
     });
 
-    $("body").on("click", "input[name='product']", function () {
-        if ($("input[name='product']:checked").val() == 'other') {
-            $("section[name='product_other']").css('display', 'block');
-        } else {
-            $("section[name='product_other']").css('display', 'none');
-            $("section[name='product_other']").val('');
-        }
-    });
 
-    // $("body").on("click", "input[name='when']", function () {
-    //     if ($("input[name='when']:checked").val() == 'other') {
-    //         $("textarea[name='when_other']").css('display', 'block');
-    //     } else {
-    //         $("textarea[name='when_other']").css('display', 'none');
-    //         $("textarea[name='when_other']").val('');
-    //     }
-    // });
+
+    $('input[type="radio"]').click(function () {
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".box").not(targetBox).hide();
+        $(targetBox).show();
+    });
 
 });
